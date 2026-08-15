@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Cabin } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
-const cabin = Cabin({ subsets: ["latin"], variable: "--font-cabin" });
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
   title: "Dashen Bank Super App",
@@ -15,8 +19,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={cn("h-full", "antialiased", cabin.variable)}>
-      <body className="min-h-full flex flex-col">
+    <html lang="en" className={cn("h-full", "antialiased", poppins.variable)}>
+      <body className="flex flex-col">
         <Navbar />
         {children}
         <Footer />

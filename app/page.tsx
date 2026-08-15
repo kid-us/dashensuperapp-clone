@@ -1,12 +1,12 @@
-import React from "react";
+import Hero from "@/components/landing/hero";
+import AccountLink from "@/components/landing/account-link";
 
 const page = () => {
   return (
-    <div>
-      <div className="">
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      </div>
-    </div>
+    <main>
+      <Hero />
+      <AccountLink />
+    </main>
   );
 };
 

@@ -29,7 +29,7 @@ function useIntersectionVisible() {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (ref.current) {
@@ -88,7 +88,7 @@ export default function AppFeatures() {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto py-12 md:py-24 px-4 sm:px-6 lg:px-8">
+    <div className="max-w-6xl mx-auto py-12 md:py-24 px-6 sm:px-6 lg:px-8">
       {/* Header Row */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-0">
         <div>
@@ -175,7 +175,7 @@ export default function AppFeatures() {
 
         {/* Side descriptions */}
         <div className="space-y-10 lg:space-y-20 w-full">
-          <div 
+          <div
             ref={bankingRef}
             className={`space-y-3 ${bankingVisible ? "animate-fade-in-up" : "opacity-0"}`}
           >
@@ -191,7 +191,7 @@ export default function AppFeatures() {
               your lifestyle, not the other way around.
             </p>
           </div>
-          <div 
+          <div
             ref={budgetingRef}
             className={`space-y-3 ${budgetingVisible ? "animate-fade-in-up" : "opacity-0"}`}
             style={{ animationDelay: "150ms" }}
@@ -213,7 +213,7 @@ export default function AppFeatures() {
 
       {/* Bottom descriptions */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 mt-12 lg:mt-20">
-        <div 
+        <div
           ref={chattingRef}
           className={`space-y-3 ${chattingVisible ? "animate-fade-in-up" : "opacity-0"}`}
         >
@@ -231,7 +231,7 @@ export default function AppFeatures() {
             full picture right where you need it.
           </p>
         </div>
-        <div 
+        <div
           ref={ecommerceRef}
           className={`space-y-3 ${ecommerceVisible ? "animate-fade-in-up" : "opacity-0"}`}
           style={{ animationDelay: "150ms" }}

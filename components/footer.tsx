@@ -44,15 +44,15 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="col-span-1 sm:col-span-1 lg:col-span-2">
-            <h3 className="mb-5 text-[13px] font-semibold text-[#686d82] uppercase tracking-wider">
+            <h3 className="mb-5 text-[15px] font-semibold text-[#686d82]/80 uppercase tracking-wider">
               QUICK LINKS
             </h3>
-            <div className="flex flex-col gap-y-2">
+            <div className="flex flex-col gap-y-3">
               {quickLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="w-fit text-[13px] font-medium text-[#171a2e] transition-colors duration-200 hover:text-[#2f3597]"
+                  className="inline-block w-fit text-[13px] font-medium text-[#171a2e] transition-all duration-300 hover:text-[#2f3597] hover:translate-x-1"
                 >
                   {link.label}
                 </Link>
@@ -62,15 +62,15 @@ export default function Footer() {
 
           {/* Home */}
           <div className="col-span-1 sm:col-span-1 lg:col-span-2">
-            <h3 className="mb-5 text-[13px] font-semibold text-[#686d82] uppercase tracking-wider">
+            <h3 className="mb-5 text-[15px] font-semibold text-[#686d82]/80 uppercase tracking-wider">
               HOME
             </h3>
-            <div className="flex flex-col gap-y-2">
+            <div className="flex flex-col gap-y-3">
               {homeLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="w-fit text-[13px] font-medium text-[#171a2e] transition-colors duration-200 hover:text-[#2f3597]"
+                  className="inline-block w-fit text-[13px] font-medium text-[#171a2e] transition-all duration-300 hover:text-[#2f3597] hover:translate-x-1"
                 >
                   {link.label}
                 </Link>
@@ -80,27 +80,27 @@ export default function Footer() {
 
           {/* Feature Column */}
           <div className="col-span-2 sm:col-span-2 lg:col-span-3">
-            <h3 className="mb-5 text-[13px] font-semibold text-[#686d82] uppercase tracking-wider">
+            <h3 className="mb-5 text-[15px] font-semibold text-[#686d82]/80 uppercase tracking-wider">
               FEATURE
             </h3>
-            <div className="grid grid-cols-2 gap-x-8 gap-y-2">
-              <div className="flex flex-col gap-y-2">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+              <div className="flex flex-col gap-y-3">
                 {featureLinks.map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="w-fit text-[13px] font-medium text-[#171a2e] transition-colors duration-200 hover:text-[#2f3597]"
+                    className="inline-block w-fit text-[13px] font-medium text-[#171a2e] transition-all duration-300 hover:text-[#2f3597] hover:translate-x-1"
                   >
                     {link.label}
                   </Link>
                 ))}
               </div>
-              <div className="flex flex-col gap-y-2">
+              <div className="flex flex-col gap-y-3">
                 {moreFeatureLinks.map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
-                    className="w-fit text-[13px] font-medium text-[#171a2e] transition-colors duration-200 hover:text-[#2f3597]"
+                    className="inline-block w-fit text-[13px] font-medium text-[#171a2e] transition-all duration-300 hover:text-[#2f3597] hover:translate-x-1"
                   >
                     {link.label}
                   </Link>
@@ -111,19 +111,19 @@ export default function Footer() {
 
           {/* Contact Column */}
           <div className="col-span-1 sm:col-span-1 lg:col-span-2">
-            <h3 className="mb-5 text-[13px] font-semibold text-[#686d82] uppercase tracking-wider">
+            <h3 className="mb-5 text-[15px] font-semibold text-[#686d82]/80 uppercase tracking-wider">
               CONTACT
             </h3>
-            <div className="flex flex-col gap-y-2">
+            <div className="flex flex-col gap-y-3">
               <a
                 href="tel:+251115158000"
-                className="w-fit text-[13px] font-medium text-[#171a2e] transition-colors duration-200 hover:text-[#2f3597]"
+                className="inline-block w-fit text-[13px] font-medium text-[#171a2e] transition-all duration-300 hover:text-[#2f3597] hover:translate-x-1"
               >
                 +251 11 515 8000
               </a>
               <a
                 href="mailto:info@dashensuperapp.com"
-                className="w-fit text-[13px] font-medium text-[#171a2e] transition-colors duration-200 hover:text-[#2f3597]"
+                className="inline-block w-fit text-[13px] font-medium text-[#171a2e] transition-all duration-300 hover:text-[#2f3597] hover:translate-x-1"
               >
                 info@dashensuperapp.com
               </a>

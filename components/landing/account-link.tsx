@@ -11,7 +11,7 @@ const AccountLink = () => {
 
       <div className="flex flex-col items-center justify-center w-full max-w-6xl px-6 sm:px-10 lg:px-8 h-full mx-auto text-white">
         <div className="flex flex-col lg:grid lg:grid-cols-3 gap-10 lg:gap-28 items-center justify-center w-full">
-          <div className="flex items-center justify-center col-span-1">
+          <div className="flex items-center justify-center col-span-1 select-none">
             <div className="w-16 sm:w-22 lg:w-28 overflow-visible">
               <Image
                 src="/images/fayda-2.webp"

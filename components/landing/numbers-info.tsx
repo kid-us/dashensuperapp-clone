@@ -91,7 +91,7 @@ const NumbersInfo = () => {
       </div>
 
       <div className="relative flex items-center justify-center h-full w-full">
-        <div className="text-center w-full max-w-6xl px-4 sm:px-6">
+        <div className="text-center w-full max-w-7xl px-6">
           <h2
             className="text-3xl sm:text-4xl font-bold text-white mb-8 sm:mb-12 uppercase leading-tight"
             style={{
@@ -108,7 +108,7 @@ const NumbersInfo = () => {
           {/* Numbers */}
           <div
             ref={containerRef}
-            className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 lg:gap-20 max-w-5xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14 max-w-5xl mx-auto"
           >
             <div className="text-center">
               <p

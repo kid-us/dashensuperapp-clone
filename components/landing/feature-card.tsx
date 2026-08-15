@@ -32,7 +32,7 @@ export default function FeatureCard({
       <div
         className={[
           "flex flex-col justify-center items-center gap-1.5 rounded-xl bg-white",
-          "p-2 sm:p-3 shadow-md border border-slate-100",
+          "p-2 sm:p-3 border border-slate-100",
           "transition-all duration-500",
           active
             ? "border-[#0D39A5]/80 shadow-[0_10px_24px_-8px_rgba(47,53,151,0.45)] ring-4 ring-[#0D39A5]/20"

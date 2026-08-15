@@ -90,7 +90,7 @@ const Navbar = () => {
                     }}
                     onMouseEnter={() => setHoveredIndex(idx)}
                     onMouseLeave={() => setHoveredIndex(null)}
-                    className={`relative z-10 text-[14.5px] font-semibold py-1.5 px-4 rounded-full transition-all duration-300 ${
+                    className={`relative z-10 text-[14.5px] font-semibold py-1.5 px-4.5 rounded-full transition-all duration-300 ${
                       isCurrentActiveOrHovered
                         ? "text-black"
                         : showActiveIndicator

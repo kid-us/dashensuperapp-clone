@@ -17,13 +17,13 @@ const Hero = () => {
           <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white uppercase text-center animate-fade-in-up">
             Dashen Bank Super App
           </h1>
-          <p 
+          <p
             className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white uppercase text-center leading-tight animate-fade-in-up"
             style={{ animationDelay: "150ms" }}
           >
             Secure, Fast, and Easy
           </p>
-          <div 
+          <div
             className="text-center space-y-1 text-xs text-white/95 max-w-sm sm:max-w-md animate-fade-in-up"
             style={{ animationDelay: "300ms" }}
           >
@@ -34,7 +34,7 @@ const Hero = () => {
           </div>
         </div>
 
-        <div 
+        <div
           className="mt-10 sm:mt-14 lg:mt-16 flex justify-center w-full animate-fade-in-up"
           style={{ animationDelay: "450ms" }}
         >

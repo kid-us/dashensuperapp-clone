@@ -4,6 +4,7 @@ import { appStoreLinks, navLinks } from "@/constants/nav-links";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState, useEffect, useRef } from "react";
 import {
   Sheet,
   SheetTrigger,
@@ -14,9 +15,37 @@ import { Menu } from "lucide-react";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [activeRect, setActiveRect] = useState<{
+    left: number;
+    width: number;
+  } | null>(null);
+  const containerRef = useRef<HTMLUListElement>(null);
+  const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+
+  const activeIdx = navLinks.findIndex((link) => link.url === pathname);
+  const targetIdx = hoveredIndex !== null ? hoveredIndex : activeIdx;
+
+  useEffect(() => {
+    if (
+      targetIdx !== -1 &&
+      linkRefs.current[targetIdx] &&
+      containerRef.current
+    ) {
+      const targetEl = linkRefs.current[targetIdx];
+      if (targetEl) {
+        setActiveRect({
+          left: targetEl.offsetLeft,
+          width: targetEl.offsetWidth,
+        });
+      }
+    } else {
+      setActiveRect(null);
+    }
+  }, [pathname, targetIdx]);
 
   return (
-    <div className="absolute w-full top-0 z-50 bg-[radial-gradient(circle_at_left_bottom,rgba(57,107,219,0.2)_0%,transparent_50%),radial-gradient(circle_at_right_top,rgba(57,107,219,0.2)_0%,transparent_50%)] backdrop-blur-xs md:backdrop-blur-none border-b border-white/1">
+    <div className="fixed w-full top-0 z-50 bg-[radial-gradient(circle_at_left_bottom,rgba(57,107,219,0.2)_0%,transparent_50%),radial-gradient(circle_at_right_top,rgba(57,107,219,0.2)_0%,transparent_50%)] backdrop-blur-xs md:backdrop-blur-none border-b border-white/1">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between py-3.5 px-6">
           {/* Logo */}
@@ -31,17 +60,48 @@ const Navbar = () => {
           </Link>
 
           {/* Nav Links - Desktop */}
-          <nav className="hidden md:flex bg-black/10 backdrop-blur-sm rounded-full px-2 py-1">
-            <ul className="flex items-center justify-between rounded-full py-2.5 h-10.5 w-141">
-              {navLinks.map((link) => (
-                <Link
-                  href={link.url}
-                  key={link.name}
-                  className={`text-[14.5px] font-medium text-accent transition-all duration-300 ${pathname === link.url ? "bg-white rounded-full px-4 py-2 text-black" : "px-4"}`}
-                >
-                  {link.name}
-                </Link>
-              ))}
+          <nav className="hidden md:flex bg-black/10 backdrop-blur-sm rounded-full px-2 py-1 relative">
+            <ul
+              ref={containerRef}
+              className="flex items-center justify-between rounded-full py-2.5 h-10.5 w-141 relative"
+            >
+              {/* Sliding Active Pill */}
+              {activeRect && (
+                <div
+                  className="absolute h-9.5 bg-white rounded-full transition-all duration-300 ease-out"
+                  style={{
+                    left: `${activeRect.left}px`,
+                    width: `${activeRect.width}px`,
+                  }}
+                />
+              )}
+
+              {navLinks.map((link, idx) => {
+                const isCurrentActiveOrHovered = targetIdx === idx;
+                const isActive = activeIdx === idx;
+                const showActiveIndicator = isActive && hoveredIndex !== null;
+
+                return (
+                  <Link
+                    href={link.url}
+                    key={link.name}
+                    ref={(el) => {
+                      linkRefs.current[idx] = el;
+                    }}
+                    onMouseEnter={() => setHoveredIndex(idx)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    className={`relative z-10 text-[14.5px] font-semibold py-1.5 px-4 rounded-full transition-all duration-300 ${
+                      isCurrentActiveOrHovered
+                        ? "text-black"
+                        : showActiveIndicator
+                          ? "bg-white/20 text-white shadow-xs"
+                          : "text-white/70 hover:text-white"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
             </ul>
           </nav>
 
@@ -73,7 +133,7 @@ const Navbar = () => {
                   className="text-white p-2.5 hover:bg-white/10 rounded-full transition-colors outline-none cursor-pointer"
                   aria-label="Toggle Menu"
                 >
-                  <Menu className="w-5.5 h-5.5" />
+                  <Menu className="size-7" />
                 </button>
               </SheetTrigger>
               <SheetContent

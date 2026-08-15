@@ -14,13 +14,19 @@ const Hero = () => {
 
       <div className="absolute top-32 left-0 right-0 bottom-0 flex flex-col items-center justify-center px-4">
         <div className="flex flex-col items-center justify-center space-y-3.5">
-          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white uppercase text-center">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white uppercase text-center animate-fade-in-up">
             Dashen Bank Super App
           </h1>
-          <p className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white uppercase text-center leading-tight">
+          <p 
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white uppercase text-center leading-tight animate-fade-in-up"
+            style={{ animationDelay: "150ms" }}
+          >
             Secure, Fast, and Easy
           </p>
-          <div className="text-center space-y-1 text-xs text-white/95 max-w-sm sm:max-w-md">
+          <div 
+            className="text-center space-y-1 text-xs text-white/95 max-w-sm sm:max-w-md animate-fade-in-up"
+            style={{ animationDelay: "300ms" }}
+          >
             <p>Secure, fast banking in Dashen Bank Super App.</p>
             <p>
               Check balances, transfer funds, pay bills—all in one simple place.
@@ -28,7 +34,10 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="mt-10 sm:mt-14 lg:mt-16 flex justify-center w-full">
+        <div 
+          className="mt-10 sm:mt-14 lg:mt-16 flex justify-center w-full animate-fade-in-up"
+          style={{ animationDelay: "450ms" }}
+        >
           <Image
             src="/images/mobile-app-mockup.webp"
             alt="Mockup"

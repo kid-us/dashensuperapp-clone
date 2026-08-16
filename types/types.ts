@@ -1,5 +1,6 @@
 import { LucideIcon } from "lucide-react";
 
+// Links Types
 export interface LinkTypes {
   name: string;
   url: string;
@@ -7,6 +8,7 @@ export interface LinkTypes {
   target?: string;
 }
 
+// Social Media Types
 export interface SocialMedia {
   name: string;
   url: string;
@@ -19,6 +21,7 @@ export interface SocialMedia {
     | "tiktok";
 }
 
+// App Store Links Types
 export interface AppStoreLinks {
   name: string;
   url: string;
@@ -35,4 +38,14 @@ export interface Goal {
 // Core App Offers Types
 export interface Offer extends Goal {
   icon?: LucideIcon;
+}
+
+// Blogs Types
+export interface Blog {
+  title: string;
+  image: string;
+  date: string;
+  readTime: string;
+  description: string;
+  url: string;
 }

@@ -4,6 +4,7 @@ import AppFeatures from "@/components/landing/app-features";
 import NumbersInfo from "@/components/landing/numbers-info";
 import Goals from "@/components/landing/goals";
 import CoreAppOffers from "@/components/landing/offers";
+import Blogs from "@/components/landing/blog";
 
 const page = () => {
   return (
@@ -14,6 +15,7 @@ const page = () => {
       <NumbersInfo />
       <Goals />
       <CoreAppOffers />
+      <Blogs />
     </main>
   );
 };

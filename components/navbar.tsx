@@ -25,6 +25,7 @@ const Navbar = () => {
 
   const activeIdx = navLinks.findIndex((link) => link.url === pathname);
   const targetIdx = hoveredIndex !== null ? hoveredIndex : activeIdx;
+  const isDarkPage = pathname === "/";
 
   useEffect(() => {
     if (
@@ -45,7 +46,13 @@ const Navbar = () => {
   }, [pathname, targetIdx]);
 
   return (
-    <div className="fixed w-full top-0 z-50 bg-[radial-gradient(circle_at_left_bottom,rgba(57,107,219,0.2)_0%,transparent_50%),radial-gradient(circle_at_right_top,rgba(57,107,219,0.2)_0%,transparent_50%)] backdrop-blur-xs md:backdrop-blur-none border-b border-white/1">
+    <div
+      className={`fixed w-full top-0 z-50 transition-colors duration-300 backdrop-blur-md ${
+        isDarkPage
+          ? "bg-[radial-gradient(circle_at_left_bottom,rgba(57,107,219,0.15)_0%,transparent_50%),radial-gradient(circle_at_right_top,rgba(57,107,219,0.15)_0%,transparent_50%)]"
+          : ""
+      }`}
+    >
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between py-3.5 px-6">
           {/* Logo */}
@@ -60,7 +67,11 @@ const Navbar = () => {
           </Link>
 
           {/* Nav Links - Desktop */}
-          <nav className="hidden md:flex bg-black/10 backdrop-blur-sm rounded-full px-2 py-1 relative">
+          <nav
+            className={`hidden md:flex backdrop-blur-sm rounded-full px-2 py-1 relative transition-colors duration-300 ${
+              isDarkPage ? "bg-black/10" : "bg-slate-100"
+            }`}
+          >
             <ul
               ref={containerRef}
               className="flex items-center justify-between rounded-full py-2.5 h-10.5 w-141 relative"
@@ -68,7 +79,9 @@ const Navbar = () => {
               {/* Sliding Active Pill */}
               {activeRect && (
                 <div
-                  className="absolute h-9.5 bg-white rounded-full transition-all duration-300 ease-out"
+                  className={`absolute h-9.5 rounded-full transition-all duration-300 ease-out ${
+                    isDarkPage ? "bg-white" : "bg-[#0D39A5]"
+                  }`}
                   style={{
                     left: `${activeRect.left}px`,
                     width: `${activeRect.width}px`,
@@ -92,10 +105,16 @@ const Navbar = () => {
                     onMouseLeave={() => setHoveredIndex(null)}
                     className={`relative z-10 text-[14.5px] font-semibold py-1.5 px-4.5 rounded-full transition-all duration-300 ${
                       isCurrentActiveOrHovered
-                        ? "text-black"
+                        ? isDarkPage
+                          ? "text-black"
+                          : "text-white"
                         : showActiveIndicator
-                          ? `bg-white/20 ${pathname === "/features" ? "text-black" : "text-white"}  shadow-xs`
-                          : `${pathname === "/features" ? "text-black/80" : "text-white/80"} hover:text-white`
+                          ? isDarkPage
+                            ? "bg-white/20 text-white shadow-xs"
+                            : "bg-[#0D39A5]/10 text-[#0D39A5] shadow-xs"
+                          : isDarkPage
+                            ? "text-white/80 hover:text-white"
+                            : "text-slate-600 hover:text-slate-900"
                     }`}
                   >
                     {link.name}
@@ -111,7 +130,7 @@ const Navbar = () => {
               <Link
                 href={app.url}
                 key={app.name}
-                className="flex items-center gap-2 border rounded-full px-3 py-1.75 bg-white text-[12px] text-black font-medium shadow hover:bg-slate-300 transition-colors"
+                className="flex items-center gap-2 border rounded-full px-3 py-1.75 bg-white text-[12px] text-black font-medium shadow hover:bg-slate-400 transition-colors"
               >
                 <Image
                   src={app.icon}
@@ -130,7 +149,11 @@ const Navbar = () => {
             <Sheet>
               <SheetTrigger asChild>
                 <button
-                  className="text-white p-2.5 hover:bg-white/10 rounded-full transition-colors outline-none cursor-pointer"
+                  className={`p-2.5 rounded-full transition-colors outline-none cursor-pointer ${
+                    isDarkPage
+                      ? "text-black hover:bg-white/10"
+                      : "text-slate-800 hover:bg-black/5"
+                  }`}
                   aria-label="Toggle Menu"
                 >
                   <Menu className="size-7" />

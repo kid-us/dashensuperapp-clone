@@ -53,7 +53,7 @@ const CoreAppOffers = () => {
       ([entry]) => {
         setIsCurrentlyVisible(entry.isIntersecting);
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (containerRef.current) {
@@ -183,15 +183,13 @@ const CoreAppOffers = () => {
                   <div className="flex flex-col gap-4 items-start">
                     {/* Icon Container */}
                     <div
-                      className={`flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl shrink-0 transition-all duration-500 ${
+                      className={`flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-xl shrink-0 transition-all duration-500 ${
                         isActive
-                          ? "bg-linear-to-br from-[#0D39A5] to-blue-600 text-white shadow-md shadow-blue-500/20 scale-110"
+                          ? "bg-linear-to-br from-[#0D39A5] to-blue-600 text-white shadow-md shadow-blue-500/20"
                           : "bg-blue-50 text-[#0D39A5] group-hover:scale-105"
                       }`}
                     >
-                      {offer.icon && (
-                        <offer.icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                      )}
+                      {offer.icon && <offer.icon className="w-5 h-5" />}
                     </div>
 
                     {/* Text Details */}

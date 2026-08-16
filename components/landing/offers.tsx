@@ -37,6 +37,8 @@ const CoreAppOffers = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [containerRef, isVisible] = useIntersectionVisible();
+  const [isCurrentlyVisible, setIsCurrentlyVisible] = useState(false);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     if (isPaused) return;
@@ -45,6 +47,30 @@ const CoreAppOffers = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, [isPaused, activeIndex]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsCurrentlyVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [containerRef]);
+
+  useEffect(() => {
+    if (isCurrentlyVisible && cardRefs.current[activeIndex]) {
+      cardRefs.current[activeIndex]?.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+    }
+  }, [activeIndex, isCurrentlyVisible]);
 
   return (
     <section className="py-20 md:py-28 bg-linear-to-b from-white via-slate-50/50 to-white overflow-hidden">
@@ -121,7 +147,7 @@ const CoreAppOffers = () => {
                       alt={offer.name}
                       fill
                       sizes="320px"
-                      className={`object-contain ${idx === 0 ? "scale-105" : "scale-70"}`}
+                      className={`object-contain ${idx === 0 ? "scale-105" : "scale-60"}`}
                       priority={idx === 0}
                     />
                   </div>
@@ -137,8 +163,11 @@ const CoreAppOffers = () => {
               return (
                 <div
                   key={index}
+                  ref={(el) => {
+                    cardRefs.current[index] = el;
+                  }}
                   onClick={() => setActiveIndex(index)}
-                  className={`group relative p-6 sm:p-8 rounded-2xl cursor-pointer border transition-all duration-500 ease-out select-none ${
+                  className={`group relative p-6 sm:p-8 rounded-r-2xl cursor-pointer border transition-all duration-500 ease-out select-none ${
                     isActive
                       ? "bg-white border-slate-100 shadow-[0_12px_36px_-12px_rgba(13,57,165,0.08)] scale-[1.01]"
                       : "bg-transparent border-transparent hover:bg-slate-50/70"

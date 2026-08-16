@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const AccountLink = () => {
   return (
-    <div className="relative lg:mt-5 bg-black min-h-118.5 h-auto lg:h-118.5 py-12 lg:py-0 overflow-hidden flex items-center">
+    <div className="relative bg-black min-h-118.5 h-auto lg:h-118.5 py-12 lg:py-0 overflow-hidden flex items-center">
       {/* Primary color gradients on left and right sides */}
       <div className="absolute -left-36 top-1/2 -translate-y-1/2 w-md h-112 rounded-full bg-primary/80 blur-[200px] pointer-events-none" />
       <div className="absolute -right-36 top-1/2 -translate-y-1/2 w-md h-112 rounded-full bg-primary/80 blur-[200px] pointer-events-none" />

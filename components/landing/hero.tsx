@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="w-full lg:h-dvh h-[105dvh] relative">
+    <div className="w-full h-[115dvh] md:h-[125dvh] relative">
       <div
-        className="absolute left-0 right-0 inset-0 bg-center bg-cover h-full lg:h-[102dvh]"
+        className="absolute left-0 right-0 top-0 inset-0 bg-center bg-cover h-[115dvh] md:h-[125dvh]"
         style={{
           backgroundImage: "url('/images/mountain.webp')",
         }}
@@ -35,7 +35,7 @@ const Hero = () => {
         </div>
 
         <div
-          className="mt-10 sm:mt-14 lg:mt-16 flex justify-center w-full animate-fade-in-up"
+          className="mt-10 sm:mt-14 lg:mt-14 flex justify-center w-full animate-fade-in-up"
           style={{ animationDelay: "450ms" }}
         >
           <Image

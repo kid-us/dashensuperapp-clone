@@ -49,3 +49,10 @@ export interface Blog {
   description: string;
   url: string;
 }
+
+// In App Chat Types
+export interface InAppChat {
+  name: string;
+  description: string;
+  icon: LucideIcon;
+}

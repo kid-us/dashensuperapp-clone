@@ -94,8 +94,8 @@ const Navbar = () => {
                       isCurrentActiveOrHovered
                         ? "text-black"
                         : showActiveIndicator
-                          ? "bg-white/20 text-white shadow-xs"
-                          : "text-white/70 hover:text-white"
+                          ? `bg-white/20 ${pathname === "/features" ? "text-black" : "text-white"}  shadow-xs`
+                          : `${pathname === "/features" ? "text-black/80" : "text-white/80"} hover:text-white`
                     }`}
                   >
                     {link.name}

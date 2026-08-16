@@ -130,7 +130,7 @@ const Navbar = () => {
               <Link
                 href={app.url}
                 key={app.name}
-                className="flex items-center gap-2 border rounded-full px-3 py-1.75 bg-white text-[12px] text-black font-medium shadow hover:bg-slate-400 transition-colors"
+                className="flex items-center gap-2 border rounded-full px-3 py-1.75 bg-white text-[12px] text-black font-medium shadow hover:bg-primary/40 hover:text-white transition-colors"
               >
                 <Image
                   src={app.icon}

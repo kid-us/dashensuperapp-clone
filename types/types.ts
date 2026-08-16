@@ -1,3 +1,5 @@
+import { LucideIcon } from "lucide-react";
+
 export interface LinkTypes {
   name: string;
   url: string;
@@ -21,4 +23,16 @@ export interface AppStoreLinks {
   name: string;
   url: string;
   icon: string;
+}
+
+// Goals Types
+export interface Goal {
+  name: string;
+  description: string;
+  image: string;
+}
+
+// Core App Offers Types
+export interface Offer extends Goal {
+  icon?: LucideIcon;
 }

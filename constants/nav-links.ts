@@ -13,11 +13,11 @@ export const appStoreLinks: AppStoreLinks[] = [
   {
     name: "Google Play",
     url: "#",
-    icon: "/images/play-store.png",
+    icon: "/icons/play-store.png",
   },
   {
     name: "App Store",
     url: "#",
-    icon: "/images/app-store.png",
+    icon: "/icons/app-store.png",
   },
 ];

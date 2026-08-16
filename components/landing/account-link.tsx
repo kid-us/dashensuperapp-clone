@@ -14,7 +14,7 @@ const AccountLink = () => {
           <div className="flex items-center justify-center col-span-1 select-none">
             <div className="w-16 sm:w-22 lg:w-28 overflow-visible">
               <Image
-                src="/images/fayda-2.webp"
+                src="/icons/fayda.webp"
                 alt="Section Icon"
                 width={1000}
                 height={1000}
@@ -23,7 +23,7 @@ const AccountLink = () => {
             </div>
             <div className="w-12 sm:w-16 lg:w-20 overflow-visible">
               <Image
-                src="/images/chain.png"
+                src="/icons/chain.png"
                 alt="Section Icon"
                 width={1000}
                 height={1000}
@@ -32,7 +32,7 @@ const AccountLink = () => {
             </div>
             <div className="w-20 sm:w-26 lg:w-32 overflow-visible">
               <Image
-                src="/images/dashen.png"
+                src="/icons/dashen.png"
                 alt="Section Icon"
                 width={1000}
                 height={1000}

@@ -1,5 +1,6 @@
 "use client";
 
+import { ourGoals } from "@/constants/goals";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 
@@ -30,35 +31,13 @@ function useIntersectionVisible() {
   return [ref, isVisible] as const;
 }
 
-// Goals
-const ourGoals = [
-  {
-    title: "Empower Financial Freedom",
-    description:
-      "Dashen Bank Super App brings budgeting, account management, and secure payments together so you can make confident choices about your money without complexity or confusion.",
-    image: "/images/model-1.webp",
-  },
-  {
-    title: "Simplify Daily Life",
-    description:
-      "Dashen Bank Super App makes checking balances, paying bills, and transferring funds quick and intuitive, so you spend less time managing money and more time living your life.",
-    image: "/images/model-2.webp",
-  },
-  {
-    title: "Connect People and Services",
-    description:
-      "Dashen Bank Super App links your financial needs with everyday services like payments and transfers, so everything you rely on stays connected in a single, secure platform.",
-    image: "/images/model-3.webp",
-  },
-];
-
 const Goals = () => {
   const [containerRef, isVisible] = useIntersectionVisible();
 
   return (
     <section className="max-w-6xl mx-auto w-full flex items-center flex-col py-16 md:py-24 px-6 sm:px-6 lg:px-8">
       <Image
-        src={"/images/goals.svg"}
+        src={"/icons/goals.svg"}
         height={500}
         width={500}
         className="w-20"
@@ -87,7 +66,7 @@ const Goals = () => {
             >
               <div className="space-y-3 px-6">
                 <h2 className="text-center text-lg font-semibold mb-3 uppercase text-slate-900">
-                  {goal.title}
+                  {goal.name}
                 </h2>
                 <p className="text-center text-sm text-slate-500 leading-relaxed">
                   {goal.description}
@@ -96,7 +75,7 @@ const Goals = () => {
               <div className="overflow-hidden w-full">
                 <Image
                   src={goal.image}
-                  alt={goal.title}
+                  alt={goal.name}
                   width={500}
                   height={500}
                   className={`w-60 mx-auto object-cover ${index === 2 ? "scale-140 group-hover:scale-145 mb-14" : "group-hover:scale-105 mt-7 mb-0"} transition-transform duration-700`}

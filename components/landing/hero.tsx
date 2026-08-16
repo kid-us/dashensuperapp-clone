@@ -43,8 +43,8 @@ const Hero = () => {
             <Image
               src="/images/mobile-app-mockup.webp"
               alt="Mockup"
-              width={1000}
-              height={1000}
+              width={700}
+              height={700}
               className="w-full px-6 md:px-0 lg:max-w-lg xl:max-w-xl object-contain"
               priority
             />
@@ -59,8 +59,8 @@ const Hero = () => {
           <Image
             src="/images/mobile-app-mockup.webp"
             alt="Mockup"
-            width={1000}
-            height={1000}
+            width={700}
+            height={700}
             className="w-full px-6 md:px-0 lg:max-w-lg xl:max-w-xl object-contain"
             priority
           />

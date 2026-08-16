@@ -94,8 +94,8 @@ const InAppChat = () => {
           >
             <Image
               src="/images/in-app-chatting.webp"
-              width={1000}
-              height={1000}
+              width={700}
+              height={700}
               alt="In App Chat"
               className="h-auto w-full object-contain select-none animate-float-mockup"
               priority

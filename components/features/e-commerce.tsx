@@ -20,8 +20,8 @@ const ECommerce = () => {
         <Image
           src={"/images/ecommerce-feature.webp"}
           alt="Mini Apps"
-          width={1000}
-          height={1000}
+          width={700}
+          height={700}
           className="relative md:w-187.5 h-auto object-contain my-10 animate-float-nid select-none"
         />
       </div>

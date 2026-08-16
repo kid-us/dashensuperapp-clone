@@ -81,8 +81,8 @@ const DigitalOnboarding = () => {
                 <Image
                   src={digital.image}
                   alt={digital.name || "Digital Onboarding Mockup"}
-                  width={1000}
-                  height={1000}
+                  width={700}
+                  height={700}
                   className={`w-full object-contain transition-transform duration-700 ease-out group-hover:scale-105 ${
                     index === 1 ? "h-full" : "mt-8 lg:mt-16 rounded-xl"
                   }`}

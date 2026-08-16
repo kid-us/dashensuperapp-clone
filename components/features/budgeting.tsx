@@ -78,8 +78,8 @@ const Budgeting = () => {
                   <Image
                     src={budget.image}
                     alt={budget.name || "Digital Onboarding Mockup"}
-                    width={1000}
-                    height={1000}
+                    width={700}
+                    height={700}
                     className={`w-full object-contain transition-transform duration-700 ease-out group-hover:scale-105 rounded-3xl`}
                   />
                 </div>

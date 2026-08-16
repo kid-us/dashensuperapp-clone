@@ -15,8 +15,8 @@ const MiniApps = () => {
         <Image
           src={"/images/mini-apps.webp"}
           alt="Mini Apps"
-          width={1000}
-          height={1000}
+          width={700}
+          height={700}
           className="relative md:w-187.5 h-auto object-contain my-10 select-none"
         />
         <p className="relative text-xs md:text-base text-[#C5C5C5] max-w-xl text-center">

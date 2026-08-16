@@ -16,8 +16,8 @@ const AccountLink = () => {
               <Image
                 src="/icons/fayda.webp"
                 alt="Section Icon"
-                width={1000}
-                height={1000}
+                width={700}
+                height={700}
                 className="w-full h-auto animate-float-nid"
               />
             </div>
@@ -25,8 +25,8 @@ const AccountLink = () => {
               <Image
                 src="/icons/chain.png"
                 alt="Section Icon"
-                width={1000}
-                height={1000}
+                width={700}
+                height={700}
                 className="w-full h-auto animate-pulse-link ms-1.5 sm:ms-2"
               />
             </div>
@@ -34,8 +34,8 @@ const AccountLink = () => {
               <Image
                 src="/icons/dashen.png"
                 alt="Section Icon"
-                width={1000}
-                height={1000}
+                width={700}
+                height={700}
                 className="w-full h-auto scale-140 animate-float-bank"
               />
             </div>

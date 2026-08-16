@@ -79,9 +79,8 @@ const Navbar = () => {
               {/* Sliding Active Pill */}
               {activeRect && (
                 <div
-                  className={`absolute h-9.5 rounded-full transition-all duration-300 ease-out ${
-                    isDarkPage ? "bg-white" : "bg-[#0D39A5]"
-                  }`}
+                  className={`absolute h-9.5 rounded-full transition-all duration-300 ease-out bg-[#0642db]
+                  `}
                   style={{
                     left: `${activeRect.left}px`,
                     width: `${activeRect.width}px`,
@@ -105,9 +104,7 @@ const Navbar = () => {
                     onMouseLeave={() => setHoveredIndex(null)}
                     className={`relative z-10 text-[14.5px] font-semibold py-1.5 px-4.5 rounded-full transition-all duration-300 ${
                       isCurrentActiveOrHovered
-                        ? isDarkPage
-                          ? "text-black"
-                          : "text-white"
+                        ? "text-white"
                         : showActiveIndicator
                           ? isDarkPage
                             ? "bg-white/20 text-white shadow-xs"

@@ -37,8 +37,6 @@ const CoreAppOffers = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [containerRef, isVisible] = useIntersectionVisible();
-  const [isCurrentlyVisible, setIsCurrentlyVisible] = useState(false);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     if (isPaused) return;
@@ -48,35 +46,18 @@ const CoreAppOffers = () => {
     return () => clearInterval(interval);
   }, [isPaused, activeIndex]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsCurrentlyVisible(entry.isIntersecting);
-      },
-      { threshold: 0.1 },
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [containerRef]);
-
-  useEffect(() => {
-    if (isCurrentlyVisible && cardRefs.current[activeIndex]) {
-      cardRefs.current[activeIndex]?.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-      });
-    }
-  }, [activeIndex, isCurrentlyVisible]);
-
   return (
-    <section className="py-20 md:py-28 bg-linear-to-b from-white via-slate-50/50 to-white overflow-hidden">
+    <section
+      ref={containerRef}
+      className="py-20 md:py-28 bg-linear-to-b from-white via-slate-50/50 to-white overflow-hidden"
+    >
       <div className="container max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16 md:mb-20">
+        <div
+          className={`text-center mb-16 md:mb-20 transition-all duration-1000 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-slate-900 leading-tight">
             Everything you need in one powerful app
           </h2>
@@ -117,15 +98,18 @@ const CoreAppOffers = () => {
 
         {/* Layout Grid */}
         <div
-          ref={containerRef}
-          className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center ${
-            isVisible ? "animate-fade-in-up" : "opacity-0"
-          }`}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
           {/* Interactive Image Showcase Column (Sticky, Desktop Only) */}
-          <div className="hidden lg:flex lg:col-span-5 relative justify-center items-center">
+          <div
+            className={`hidden lg:flex lg:col-span-5 relative justify-center items-center transition-all duration-1000 delay-200 ease-out ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-12"
+            }`}
+          >
             {/* Glowing background circles for aurora effect */}
             <div className="absolute w-72 h-72 rounded-full bg-blue-400/20 blur-3xl -z-10 animate-pulse duration-4000"></div>
             <div className="absolute w-60 h-60 rounded-full bg-amber-400/10 blur-3xl -z-10 translate-x-20 -translate-y-20 animate-pulse duration-3000"></div>
@@ -157,21 +141,23 @@ const CoreAppOffers = () => {
           </div>
 
           {/* Interactive Cards Column */}
-          <div className="col-span-1 lg:col-span-7 space-y-1">
+          <div className="col-span-1 lg:col-span-7 space-y-5">
             {coreAppOffers.map((offer, index) => {
               const isActive = index === activeIndex;
               return (
                 <div
                   key={index}
-                  ref={(el) => {
-                    cardRefs.current[index] = el;
-                  }}
                   onClick={() => setActiveIndex(index)}
-                  className={`group relative p-6 sm:p-8 rounded-r-2xl cursor-pointer border transition-all duration-500 ease-out select-none ${
+                  className={`group relative p-6 sm:p-5 rounded-r-2xl cursor-pointer border select-none transition-all duration-700 ease-out ${
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-8"
+                  } ${
                     isActive
                       ? "bg-white border-slate-100 shadow-[0_12px_36px_-12px_rgba(13,57,165,0.08)] scale-[1.01]"
                       : "bg-transparent border-transparent hover:bg-slate-50/70"
                   }`}
+                  style={{ transitionDelay: `${300 + index * 100}ms` }}
                 >
                   {/* Glowing Active Border Line */}
                   <div
@@ -183,7 +169,7 @@ const CoreAppOffers = () => {
                   <div className="flex flex-col gap-4 items-start">
                     {/* Icon Container */}
                     <div
-                      className={`flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-xl shrink-0 transition-all duration-500 ${
+                      className={`flex items-center justify-center w-10 h-10 sm:w-10 sm:h-10 rounded-xl shrink-0 transition-all duration-500 ${
                         isActive
                           ? "bg-linear-to-br from-[#0D39A5] to-blue-600 text-white shadow-md shadow-blue-500/20"
                           : "bg-blue-50 text-[#0D39A5] group-hover:scale-105"

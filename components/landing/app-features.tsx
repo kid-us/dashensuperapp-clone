@@ -184,7 +184,7 @@ const AppFeatures = () => {
                 <Landmark size={20} strokeWidth={2.5} />
               </div>
               <h3 className="font-semibold text-lg text-slate-900">Banking</h3>
-              <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
+              <p className="text-xs md:text-[13.5px] text-zinc-500 leading-relaxed">
                 From opening accounts to managing cards and tracking expenses,
                 Dashen Bank Super App brings the full banking experience to your
                 fingertips. Every interaction is simplified so checking
@@ -203,7 +203,7 @@ const AppFeatures = () => {
               <h3 className="font-semibold text-lg text-slate-900">
                 Budgeting
               </h3>
-              <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
+              <p className="text-xs md:text-[13.5px] text-zinc-500 leading-relaxed">
                 Every transaction becomes an insight. Set spending limits,
                 review your money flow, and track where every birr goes. Dashen
                 Bank Super App gives you clear control over your finances so you
@@ -226,7 +226,7 @@ const AppFeatures = () => {
             <h3 className="font-semibold text-lg text-slate-900">
               In App Chatting
             </h3>
-            <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
+            <p className="text-xs md:text-[13.5px] text-zinc-500 leading-relaxed">
               Keep conversations and confirmations together in one secure
               thread. Share payment details, send receipts, and stay connected
               without leaving the app. Dashen Bank Super App makes banking chats
@@ -243,7 +243,7 @@ const AppFeatures = () => {
               <Store size={20} strokeWidth={2.5} />
             </div>
             <h3 className="font-semibold text-lg text-slate-900">E-Commerce</h3>
-            <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
+            <p className="text-xs md:text-[13.5px] text-zinc-500 leading-relaxed">
               Browse partner stores, shop online, and pay securely—all from
               inside Dashen Bank Super App. No need to jump between apps or
               websites when you want to buy what you need. With integrated
